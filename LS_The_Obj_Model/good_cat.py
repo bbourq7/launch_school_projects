@@ -1,4 +1,4 @@
-class GoodCat()
+class GoodCat():
 
 	@classmethod
 	def what_am_i(cls):
