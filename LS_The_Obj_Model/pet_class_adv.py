@@ -9,7 +9,7 @@ class GoodDog:
 
 	def set_name(self, new name):
 		if not isintance(new_name, str):
-			raise TypeError("Name must be a string')
+			raise TypeError('Name must be a string')
 		self._name = new_name
 
 	def age(self):
