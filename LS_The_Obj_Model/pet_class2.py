@@ -5,6 +5,9 @@ class Pet:
 		type_name = type(self).__name__
 		print(f'I am {name}, a {type_name}.')
 
+	def eat(self):
+		print(f"{self.name}: Yum-yum-yum!")
+
 class Dog(Pet):
 	
 	def speak(self):
