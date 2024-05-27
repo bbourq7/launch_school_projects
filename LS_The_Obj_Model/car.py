@@ -72,6 +72,11 @@ class Car:
 	def year(self):
 		return self._year
 	
+	@classmethod
+	def gas_mileage(cls, gallons, miles):
+		mileage = miles / gallons
+		print(f'Your car got {mileage} miles per gallon')
+	
 		
                 
 	
