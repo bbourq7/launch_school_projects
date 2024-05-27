@@ -2,12 +2,39 @@ class GoodDog:
 	
 	def __init__(self, name):
 		self.name = name
-		print(f'Constructor for {self.name}')
+		type_name = type(self).__name__
+		print(f'I am {self.name}, a {type_name}.')
 
 	def speak(self):
 		print(f'{self.name} says Woof!')
 
 	def roll_over(self):
 		print(f'{self.name} is rolling over.')
+
+class Cat:
+
+	def __init__(self, name):
+		self.name = name
+		type_name = type(self).__name__
+		print(f'I am {name}, a {type_name}.')
+
+	def speak(self):
+		print(f'{self.name} says Meow!')
+
+	def cough(self):
+		print('HairBall!')
+
+class Parrot:
+
+	def __init__(self, name):
+		self.name = name
+		type_name = type(self).__name__
+		print(f'I am {name}, a {type_name}.')
+
+	def speak(self):
+		print(f'{self.name} wants a cracker!')
+
+	def flap(self):
+		print(f'{self.name} flys away!!!')
 
 
