@@ -1,9 +1,9 @@
 class Car:
 	
 	def __init__(self, model, year, color):
-		self.model = model
-		self.year = year
-		self.color = color
+		self._model = model
+		self._year = year
+		self._color = color
 		self.speed = 0
 		self.acceleration = 0
 		self.brake_power = 1
@@ -52,6 +52,26 @@ class Car:
 			self.is_on_off()
 			self.speed = 0
 
+	def spray_paint_car(self, color):
+		self.color = color
+		print(f'New paint job! Looking niiiicce! Your car is now {color}')
+
+	@property
+	def color(self):
+		return self._color
+	
+	@color.setter
+	def color(self, color):
+		self._color = color
+
+	@property
+	def model(self):
+		return self._model
+	
+	@property
+	def year(self):
+		return self._year
+	
 		
                 
 	
