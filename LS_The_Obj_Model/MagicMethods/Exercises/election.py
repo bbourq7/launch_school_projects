@@ -1,51 +1,39 @@
-import math
+class Candidate:
 
+    def __init__(self, name):
+        self.name = name
+        self.votes = 0
 
-class Vector:
-
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def __add__(self, other):
-        if not isinstance(other, Vector):
-            return NotImplemented
-        
-        new_x = self.x + other.x
-        new_y = self.y + other.y
-        return Vector(new_x, new_y)
-    
     def __iadd__(self, other):
-        if not isinstance(other, Vector):
+        if not isinstance(other, int):
             return NotImplemented
         
-        self.x += other.x
-        self.y += other.y
-        return Vector(self.x, self.y)
+        self.votes += 1
+        return self
     
-    def __sub__(self, other):
-        if not isinstance(other, Vector):
-            return NotImplemented
+class Election():
+
+    def __init__(self, candidates):
+        self.candidates = candidates
         
-        x = self.x - other.x
-        y = self.y - other.y
-        return Vector(x, y)
-    
-    def __isub__(self, other):
-        if not isinstance(other, Vector):
-            return NotImplemented
-        
-        self.x -= other.x
-        self.y -= other.y
-        return Vector(self.x, self.y)
-    
-    def __mul__(self, other):
-        if not isinstance(other, Vector):
-            return NotImplemented
-        
-        dot_product = ((self.x * other.x)+(self.y * other.y))
-        return dot_product
-    
-    def __abs__(self):
-        sum_of_squares = ((self.x ** 2) + (self.y **2))
-        return math.sqrt(sum_of_squares)
+
+    def results(self):
+        max_votes = 0
+        vote_count = 0
+        winner = None
+
+        for candidate in self.candidates:
+            candidate += candidate.votes
+            vote_count += candidate.votes
+            if candidate.votes > max_votes:
+                max_votes = candidate.votes
+                winner = candidate.name
+
+        for candidate in self.candidates:
+            name = candidate.name
+            votes = candidate.votes
+            print(f'{name}: {votes} votes')
+
+        percent = 100 * (max_votes / vote_count)
+        print()
+        print(f'{winner} won: {percent}% of votes')
